@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,5 @@ Route::resource('/books', BookController::class);
 Route::get('/books-by-typeid/{id}', [BookController::class, 'booksByTypeId']);
 Route::get('/type-by-bookid/{id}', [BookController::class, 'typeByBookId']);
 Route::get('/book-by-authorname/{name}/{surname}', [BookController::class, 'booksByAuthorName']);
+
+Route::resource('/students', StudentController::class);

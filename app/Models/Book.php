@@ -26,7 +26,7 @@ class Book extends Model
     //n -> n
     public function students(){
         return $this->belongsToMany(Student::class, 'borrows', 'bookId', 'studentId')
-            ->withPoviot('takenDate', 'broughtDate')
-            ->using(Borrow::class);
+            ->withPoviot('takenDate', 'broughtDate');
+            // ->using(Borrow::class);
     }
 }

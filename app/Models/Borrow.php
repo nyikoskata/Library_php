@@ -13,4 +13,12 @@ class Borrow extends Model
     protected $primaryKey = "borrowId";
 
     public $timestamps = false;
+
+    public function book(){
+        return $this->belongsTo(Book::class, 'bookId');
+    }
+
+    public function student(){
+        return $this->belongsTo(Student::class, 'studentId');
+    }
 }

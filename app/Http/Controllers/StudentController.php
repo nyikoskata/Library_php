@@ -12,7 +12,9 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        // $students = Student::all();
+        $students = Student::with('books')->get();
+        return response()->json($students, 200);
     }
 
     /**

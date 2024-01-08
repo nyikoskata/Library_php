@@ -18,6 +18,11 @@ class Author extends Model
     //nem akarunk created meg updated mezőket kezelni
     public $timestamps = false;
 
+    protected $append = ['full_name'];
+    public function getFullNameAttribute(){
+        return $this->name.' '.$this->surname;
+    }
+
     //1 -> n
     public function books(){
         //egy szerző több könyv -> hasMany(min keresztül kapcsolódik, idegenkulcs)

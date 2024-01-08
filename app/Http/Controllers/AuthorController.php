@@ -12,7 +12,8 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        $authors = Author::all();
+        return response()->json($authors, 200);
     }
 
     /**
@@ -61,5 +62,11 @@ class AuthorController extends Controller
     public function destroy(Author $author)
     {
         //
+    }
+
+    public function authorsWithBooks(){
+        //minden rekord
+        $authors = Author::with('books')->get();
+        return response()->json($authors, 200);
     }
 }

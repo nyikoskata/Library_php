@@ -16,6 +16,6 @@ class Type extends Model
 
     //1 -> n
     public function books(){
-        return $this->hasMany(Type::class, 'typeId');
+        return $this->hasMany(Book::class, 'typeId');
     }
 }

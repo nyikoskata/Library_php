@@ -13,4 +13,13 @@ class Book extends Model
     protected $primaryKey = "bookId";
 
     public $timestamps = false;
+
+    //n -> 1
+    public function author(){
+        return $this->belongsTo(Author::class, 'authorId');
+    }
+
+    public function type(){
+        return $this->belongsTo(Type::class, 'typeId');
+    }
 }

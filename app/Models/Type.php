@@ -13,4 +13,9 @@ class Type extends Model
     protected $primaryKey = "typeId";
 
     public $timestamps = false;
+
+    //1 -> n
+    public function books(){
+        return $this->hasMany(Type::class, 'typeId');
+    }
 }

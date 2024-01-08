@@ -17,4 +17,11 @@ class Author extends Model
 
     //nem akarunk created meg updated mezőket kezelni
     public $timestamps = false;
+
+    //1 -> n
+    public function books(){
+        //egy szerző több könyv -> hasMany(min keresztül kapcsolódik, idegenkulcs)
+        //local key = primary key szval nem kell megadni
+        return $this->hasMany(Book::class, 'authorId');
+    }
 }

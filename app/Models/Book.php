@@ -22,4 +22,11 @@ class Book extends Model
     public function type(){
         return $this->belongsTo(Type::class, 'typeId');
     }
+
+    //n -> n
+    public function students(){
+        return $this->belongsToMany(Student::class, 'borrows', 'bookId', 'studentId')
+            ->withPoviot('takenDate', 'broughtDate')
+            ->using(Borrow::class);
+    }
 }

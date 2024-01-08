@@ -13,4 +13,10 @@ class Student extends Model
     protected $primaryKey = "studentId";
 
     public $timestamps = false;
+
+    public function books(){
+        return $this->belongsToMany(Book::class, 'borrows', 'studentId', 'bookId')
+            ->withPoviot('takenDate', 'broughtDate')
+            ->using(Borrow::class);
+    }
 }
